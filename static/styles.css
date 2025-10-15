@@ -1,0 +1,174 @@
+.header-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 400px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 32px;
+    font-weight: 300;
+    font-style: normal;
+    font-variant: normal;
+    letter-spacing: 1px;
+    color: inherit;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: inherit;
+    font-weight: 300;
+    font-size: 29px;
+    font-weight: 300;
+    font-style: normal;
+    font-variant: normal;
+    letter-spacing: 1px;
+
+}
+
+h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    font-style: normal;
+    font-variant: normal;
+    letter-spacing: 1px;
+    color: inherit;
+}
+
+.am-headings {
+    text-shadow: 0 13.36px 8.896px #c4b59d, 0 -2px 1px #fff;
+}
+
+.pm-headings {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    padding: 40px;
+}
+
+.am-body {
+    background-color: #FFFDF9;
+    color: #5C5C5C;
+}
+
+.pm-body {
+    background-color: rgba(30, 42, 56, 0.9);
+    color: #FFFDF9;
+}
+
+.form-floating {
+    color: #5C5C5C;
+}
+
+.buttons {
+    color: #5C5C5C;
+    background-color: #FFEB99;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.buttons:hover {
+    opacity: 70%;
+}
+
+.buttons:active {
+    top: 2px;
+    left: 1px;
+    box-shadow: none;
+}
+
+.check-btn {
+    background-color: #B7DDB0;
+}
+
+#delete-btn {
+    background-color: #FFD1C1;
+}
+
+.my-table,
+.my-table th,
+.my-table td {
+    background-color: transparent !important;
+    color: inherit;
+}
+
+#affirmation {
+    padding: 5px;
+}
+
+.separate-section {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.am-section {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pm-section {
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.my-navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.step-completed {
+    text-decoration: line-through;
+    color: #B7DDB0;
+    opacity: 0.7;
+    transition: color 0.3s, opacity 0.3s;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pm-button,
+.pm-nav {
+    background-color: #c2dcff;
+    color: #FFFFFF;
+}
+
+.am-button,
+.am-nav {
+    background-color: #ffeb99;
+    color: #FFFFFF;
+}
+
+.mood-icon {
+    font-size: xx-large;
+}
+
+.am-pm-btns {
+    font-size: xx-large;
+    padding: 10px;
+}
+
+.form-complete {
+    display: none;
+}

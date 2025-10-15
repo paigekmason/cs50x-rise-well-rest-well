@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Reset Username/Password
+{% endblock %}
+
+{% block main %}
+
+    <div class="row">
+        <div class="col">
+            <div class="separate-section am-section">
+                <h2 class="am-headings"> Reset Password </h2>
+                <form action="/resetPassword" method="post">
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="old_password" placeholder="Current password" type="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" class="form-control mx-auto w-auto" name="old_confirmation" placeholder="Confirm current password" type="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" class="form-control mx-auto w-auto" name="new_password" placeholder="New password" type="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" class="form-control mx-auto w-auto" name="new_confirmation" placeholder="Confirm new password" type="password" required>
+                    </div>
+                    <button class="buttons" type="submit">Reset Password</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <div class="separate-section am-section">
+                <h2 class="am-headings"> Reset Username </h2>
+                <form action="/resetUsername" method="post">
+                    <div class="mb-3">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="current_username" placeholder="Current username" type="text" required>
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" class="form-control mx-auto w-auto" name="new_username" placeholder="New username" type="text" required>
+                    </div>
+                    <div class="mb-3">
+                        <input autocomplete="off" class="form-control mx-auto w-auto" name="password" placeholder="Enter password" type="password" required>
+                    </div>
+                    <button class="buttons" type="submit">Reset Username</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

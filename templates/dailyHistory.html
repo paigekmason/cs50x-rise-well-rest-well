@@ -1,0 +1,39 @@
+{% extends "evening_layout.html" %}
+
+{% block title %}
+    Daily History
+{% endblock %}
+
+{% block main %}
+
+    <div class="separate-section pm-section">
+        <h2 class="pm-headings"> HISTORY </h2>
+        <h5 class="pm-headings"> A Glimpse At My Days </h5>
+        <div class="table-responsive">
+            <table class="table my-table">
+                <thead>
+                </thead>
+                {% for entry in entries %}
+                    <tbody>
+                        <tr>
+                            <td> {{ entry.date }} </td>
+                            <td> {{ entry.sentence }} </td>
+                            {% if entry.mood == "sad" %}
+                                <td><i class="far fa-frown mood-icon"></i></td>
+                            {% elif entry.mood == "angry" %}
+                                <td><i class="far fa-angry mood-icon"></i></td>
+                            {% elif entry.mood == "meh" %}
+                                <td><i class="far fa-meh mood-icon"></i></td>
+                            {% elif entry.mood == "calm" %}
+                                <td><i class="far fa-smile mood-icon"></i></td>
+                            {% elif entry.mood == "excited" %}
+                                <td><i class="far fa-grin-beam mood-icon"></i></td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </div>
+
+{% endblock %}

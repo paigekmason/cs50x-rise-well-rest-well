@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Gratitude History
+{% endblock %}
+
+{% block main %}
+
+    <div class="separate-section pm-section">
+        <h2 class="pm-headings"> HISTORY </h2>
+        <h5 class="pm-headings"> Gratitude Entries </h5>
+        <div class="table-responsive">
+            <table class="table my-table">
+                <thead>
+                </thead>
+                {% for entry in entries %}
+                    <tbody>
+                        <tr>
+                            <td> {{ entry.date }} </td>
+                            <td> {{ entry.entry }} </td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </div>
+
+{% endblock %}

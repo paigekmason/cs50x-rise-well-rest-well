@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Good Morning
+{% endblock %}
+
+{% block main %}
+    <div class="separate-section am-section">
+        <h5 class="am-headings" text-align="center">GOOD MORNING! Today is {{date}}.</h5>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="separate-section am-section">
+                    <h3 class="am-headings">TODAY'S AFFIRMATION</h3>
+                    <div id="affirmation"></div>
+                </div>
+            </div>
+            <hr class="d-sm-none">
+            <div class="col-sm-8">
+                <div class="separate-section am-section">
+                    <h2 class="am-headings">MORNING ROUTINE</h2>
+                    <div class="table-responsive">
+                        <table class="table my-table">
+                            {% for step in steps %}
+                                <tr>
+                                    <td>
+                                        <button type="button" class="buttons check-btn" id="check_button" name="check_off" value="{{ step }}"><i class="fa fa-check"></i></button>
+                                    </td>
+                                    <td>
+                                        <span class="step-text">{{ step }}</span>
+                                    </td>
+                                    <td>
+                                        <form action="/delete" method="post">
+                                            <button type="submit" class="buttons" id="delete-btn" name="delete_step" value="{{ step }}"><i class="fas fa-trash-can"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+
+                    </div>
+
+                    <form action="/addstep" method="post">
+                        <div class="form-floating mb-3 mt-3">
+                            <input autocomplete="off" type="text" class="form-control" name="new_step" required placeholder="This morning, I will...">
+                            <label for="new_step">This morning, I will...</label>
+                            <button type="submit" class="buttons"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-5">
+                    <div class="separate-section am-section">
+                        <h2 class="am-headings">DAILY GRATITUDE</h2>
+                        <div class="table-responsive">
+                            <table class="table my-table">
+                                {% for entry in gratitude_entries %}
+                                    <tr>
+                                        <td>{{ entry }}</td>
+                                        <form action="/delete" method="post">
+                                            <td><button type="submit" class="buttons" id="delete-btn" name="delete_gratitude" value="{{ entry }}"><i class="fas fa-trash-can"></i></button></td>
+                                        </form>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                        </div>
+                        <form action="/gratitudeEntry" method="post">
+                            <div class="form-floating mb-3 mt-3">
+                                <input type="text" autocomplete="off" class="form-control" name="gratitude_entry" required placeholder="Today I'm grateful for...">
+                                <label for="gratitude_entry">Today I'm grateful for...</label>
+                                <button type="submit" class="buttons"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+                            </div>
+                        </form>
+                        <p text-align="center"><a class="buttons" href="/gratitudeHistory"><i class="fa fa-history"></i></a></p>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

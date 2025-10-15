@@ -1,0 +1,99 @@
+{% extends "evening_layout.html" %}
+
+{% block title %}
+    Good Evening
+{% endblock %}
+
+{% block main %}
+    <div class="separate-section pm-section">
+        <h5 class="pm-headings" text-align="center">GOOD EVENING! Today is {{date}}.</h5>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="separate-section pm-section">
+                    <h3 class="pm-headings">TODAY'S AFFIRMATION</h3>
+                    <div id="affirmation"></div>
+                </div>
+            </div>
+            <hr class="d-sm-none">
+            <div class="col-sm-8">
+                <div class="separate-section pm-section">
+                    <h2 class="pm-headings">EVENING ROUTINE</h2>
+                    <div class="table-responsive">
+                        <table class="table my-table">
+                            {% for step in evening_steps %}
+                                <tr>
+                                    <td>
+                                        <button type="button" class="buttons check-btn" id="check_button" name="check_off" value="{{ step }}"><i class="fa fa-check"></i></button>
+                                    </td>
+                                    <td>
+                                        <span class="step-text">{{ step }}</span>
+                                    </td>
+                                    <td>
+                                        <form action="/delete" method="post">
+                                            <button type="submit" class="buttons" id="delete-btn" name="delete_evening_step" value="{{ step }}"><i class="fas fa-trash-can"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                    <form action="/addstep" method="post">
+                        <div class="form-floating mb-3 mt-3">
+                            <input autocomplete="off" type="text" class="form-control" name="new_evening_step" required placeholder="This evening, I will...">
+                            <label for="new_evening_step">This evening, I will...</label>
+                            <button type="submit" class="buttons"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="mt-5">
+                    <div class="separate-section pm-section">
+
+                        <h2 class="pm-headings">A GLIMPSE OF MY DAY</h2>
+                        {% if todays_mood == "sad" %}
+                            <p><i class="far fa-frown mood-icon"></i></p>
+                        {% elif todays_mood == "angry" %}
+                            <p><i class="far fa-angry mood-icon"></i></p>
+                        {% elif todays_mood == "meh" %}
+                            <p><i class="far fa-meh mood-icon"></i></p>
+                        {% elif todays_mood == "calm" %}
+                            <p><i class="far fa-smile mood-icon"></i></p>
+                        {% elif todays_mood == "excited" %}
+                            <p><i class="far fa-grin-beam mood-icon"></i></p>
+                        {% else %}
+                            <p></p>
+                        {% endif %}
+                        <p id="completed_message">{{ todays_sentence }}</p>
+                        <form action="/dailyEntry" method="post" id="daily_form">
+                            <table class="table table-borderless my-table">
+                                <tr>
+                                    <div class="form-check">
+                                        <td><input type="radio" id="frown" class="form-check-input" name="mood_selection" value="sad" required></td>
+                                        <td><input type="radio" id="grimace" class="form-check-input" name="mood_selection" value="angry"></td>
+                                        <td><input type="radio" id="meh" class="form-check-input" name="mood_selection" value="meh"></td>
+                                        <td><input type="radio" id="calm" class="form-check-input" name="mood_selection" value="calm"></td>
+                                        <td><input type="radio" id="excited" class="form-check-input" name="mood_selection" value="excited"></td>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <td><i class="far fa-frown mood-icon"></i></td>
+                                    <td><i class="far fa-angry mood-icon"></i></td>
+                                    <td><i class="far fa-meh mood-icon"></i></td>
+                                    <td><i class="far fa-smile mood-icon"></i></td>
+                                    <td><i class="far fa-grin-beam mood-icon"></i></td>
+                                </tr>
+                            </table>
+                            <div class="form-floating mb-3 mt-3">
+                                <input type="text" autocomplete="off" class="form-control" name="sentence" id="sentence" required placeholder="My day in one sentence...">
+                                <label for="sentence">My day in one sentence...</label>
+                                <button type="submit" class="buttons"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+                            </div>
+                        </form>
+                        <p text-align="center"><a class="buttons" href="/dailyHistory"><i class="fa fa-history"></i></a></p>
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}
